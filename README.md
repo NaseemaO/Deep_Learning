@@ -1,5 +1,4 @@
-# deep-learning-challenge
-Challenge 21 Neural Networks Supervised Machine Learning, using Google Colab
+# Deep Learning Challenge 21 Neural Networks Supervised Machine Learning, using Google Colab
 
 Input Data File: # Import our dependencies
 from sklearn.model_selection import train_test_split
