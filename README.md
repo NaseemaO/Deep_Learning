@@ -52,7 +52,7 @@ Model files are in .keras file formats in the Output folder.
 * Images of First Model
 
 
-<img src="Deep_Learning_Challenge\Images\nn_model_first_1.png" alt="First Model" width="500" height="800"> <img src="Deep_Learning_Challenge\Images\nn_model_first.png" alt="First Model" width="500" height="800">
+<img src="Images\nn_model_first_1.png" alt="First Model" width="500" height="800"> <img src="Images\nn_model_first.png" alt="First Model" width="500" height="800">
  
 ## Programs 
 * Jupyter Notebook file used in Google Colab to create the Prediction Models.  
