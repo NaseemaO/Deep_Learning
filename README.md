@@ -47,7 +47,12 @@
             69.4% Accuracy in the Test Data, and Loss of 60.5% 
             Accuracy in this case decreased with consideration to Fewer Features. 
 
-Models are in .keras file formats in the Output folder. 
+Model files are in .keras file formats in the Output folder. 
+
+* Images of First Model
+
+
+<img src="Images\nn_model_first_1.png" alt="First Model" width="500" height="800"> <img src="Images\nn_model_first.png" alt="First Model" width="500" height="800">
  
 ## Programs 
 * Jupyter Notebook file used in Google Colab to create the Prediction Models.  
