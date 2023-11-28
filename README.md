@@ -10,7 +10,7 @@
 ## Project Overview 
 * Designed a deep learning neural network model using TensorFlow in file 'AlphabetSoupCharity_Model.ipynb' to create the binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset.
 
-* Designed additional Models including auto-Optimization Models in file 'AlphabetSoupCharity_Optimization. 
+* Designed additional 5 Models with auto-Optimization , and other models in code file 'AlphabetSoupCharity_Optimization. 
 
 ## Analysis
 * The Accuracy did not improve significantly across the different optimization models. 
@@ -85,7 +85,7 @@ The charity_data.csv downloaded from the website and saved in the Resources fold
     * IS_SUCCESSFUL — Was the money used effectively
 
 * Preprocess the Data
-    Drop / Remove the unbeneficial columns. Create Model(s). 
+    Drop / Remove the unbeneficial columns.  The EIN and Name columns dropped from the DataFrame 
 
     Model Target y variable:'IS_SUCCESSFUL'  
 
