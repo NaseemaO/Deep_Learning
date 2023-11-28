@@ -1,206 +1,163 @@
-# Deep Learning Challenge 21 Neural Networks Supervised Machine Learning, using Google Colab
+# Deep Learning Challenge 21 Neural Networks Supervised Deep Machine Learning, using Google Colab
 
-Input Data File: # Import our dependencies
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-import pandas as pd
-import tensorflow as tf
+## Objective 
+* To build a tool for the nonprofit foundation 'Alphabet Soup' to help in selecting those organization applicants for funding who will have the best chance of success in their ventures. 
 
-#  Import and read the charity_data.csv.
-import pandas as pd 
-application_df = pd.read_csv("https://static.bc-edx.com/data/dl-1-2/m21/lms/starter/charity_data.csv")
-application_df.head()
+* Apply Deep Machine Learning and Neural Networks using features (metadata) from the 'Charity' Dataset provided by Alphabet Soup to create a binary classifier to predict the applicant(s) / organization(s) who will most probably be successful if funded by Alphabet Soup. 
 
-Background
-The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
+* Optimize your model to achieve a target predictive accuracy higher than 75%.
 
-From Alphabet Soup’s business team, you have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
+## Project Overview 
+* Designed a deep learning neural network model using TensorFlow in file 'AlphabetSoupCharity_Model.ipynb' to create the binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset.
 
-EIN and NAME—Identification columns
-APPLICATION_TYPE—Alphabet Soup application type
-AFFILIATION—Affiliated sector of industry
-CLASSIFICATION—Government organization classification
-USE_CASE—Use case for funding
-ORGANIZATION—Organization type
-STATUS—Active status
-INCOME_AMT—Income classification
-SPECIAL_CONSIDERATIONS—Special considerations for application
-ASK_AMT—Funding amount requested
-IS_SUCCESSFUL—Was the money used effectively
-Before You Begin
-IMPORTANT
-The instructions below are now updated to use Google Colab for this assignment instead of Jupyter Notebook. If you have already started this assignment using a Jupyter Notebook then you can continue to use Jupyter instead of Google Colab.
+* Designed additional Models including auto-Optimization Models in file 'AlphabetSoupCharity_Optimization. 
 
-Create a new repository for this project called deep-learning-challenge. Do not add this Challenge to an existing repository.
+## Analysis
+* The Accuracy did not improve significantly across the different optimization models. 
 
-Clone the new repository to your computer.
+* The Loss increased slightly across the different auto-optimization models in comparison to the First manual model. 
 
-Inside your local git repository, create a directory for the Deep Learning Challenge.
+* Accuracy decreased with use of fewer Features from the 72.5% using 9 columns to 69.4% using 5 columns when all else is constant/same.  The Loss increased from 59.5% to 60.5%.
 
-Push the above changes to GitHub.
+* The target predictive accuracy higher than 75% was not attainable with the features and data provided in the input dataset.  
 
-Files
-Download the following files to help you get started:
+* The highest Accuracy attained is in the first Model with 80 neurons in First hidden layer, and 30 in the Second Layer using 9 column Features:
+    * 74.1% in the Train Data which is about 70% of the entire DataSet, and 
+    * 71.5% in the Test Data which makes up about 30% of the entire input dataset.  
 
-Module 21 Challenge filesLinks to an external site.
+## Details of findings: 
+* First model in the AlphabetSoupCharity_Model.ipynb uses 9 columns of the metadata, with 80 neurons in the first hidden layer, and 30 in the second hidden layer has:  
+        74.1% Accuracy in the Training Data, Loss of 53.4%
+        72.5% Accuracy in the Testing Data,  Loss of 56%
 
-Instructions
-Step 1: Preprocess the Data
-Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
+* Optimization Models, and other Models created in the AlphabetSoupCharity_Optimization.ipynb. 
+ These are steps taken in attempts to create models that may improve / increase the Accuracy, and decrease the Loss. 
 
-Start by uploading the starter file to Google Colab, then using the information we provided in the Challenge files, follow the instructions to complete the preprocessing steps.
+        Sequential Models created using auto-optimization with hyperparameter options using keras tuner. 
+        Activation Choices: 'relu','tanh','sigmoid'. Top 3 Models displayed in code file
+            The Best Model and the Second Best Models both have an Accuracy of 72.6%. 
+            Best Model Loss is 57.7%, and Second Best Model Loss is 56.5%
 
-Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your dataset:
-What variable(s) are the target(s) for your model?
-What variable(s) are the feature(s) for your model?
-Drop the EIN and NAME columns.
+        More Neurons Model created with 129 neurons in the first hidden layer, and 50 in the second hidden layer. 
+            74.2% Accuracy in the Training Data, and Loss of 53.1%
+            72.3% Accuracy in the Test Data, and Loss of 58.6%
+        
+        Fewer Features Model created with using 5 colums (Features) with 80 neurons in the first hidden layer and 30 in the second hidden layer.
+            70.1% Accuracy in the Training Data, and Loss of 59.5%
+            69.4% Accuracy in the Test Data, and Loss of 60.5% 
+            Accuracy in this case decreased with consideration to Fewer Features. 
 
-Determine the number of unique values for each column.
+Models are in .keras file formats in the Output folder. 
+ 
+## Programs 
+* Jupyter Notebook file used in Google Colab to create the Prediction Models.  
+* Google Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs (Graphic Processing Units) and TPUs (Tensor Processing Units).
+* Pandas DataFrame
+* TensorFlow 
+* Neural Network & Deep Machine Learning. (A Neural Network Model with more than one hidden layer is Deep Neural Network or Deep Learning Model.)  
 
-For columns that have more than 10 unique values, determine the number of data points for each unique value.
+## Process
+* Upload Jupyter Notebook files in Google Colab
+    'AlphabetSoupCharity_Model.ipynb' - the renamed provided starter file, and 
+    'AlphabetSoupCharity_Optimization.ipynb - new file for additional optimization models
 
-Use the number of data points for each unique value to pick a cutoff point to bin "rare" categorical variables together in a new value, Other, and then check if the binning was successful.
+* Import dependencies and modules. 
 
-Use pd.get_dummies() to encode categorical variables.
+* Input Dataset file imported, read and saved from url "https://static.bc-edx.com/data/dl-1-2/m21/lms/starter/charity_data.csv" 
+The charity_data.csv downloaded from the website and saved in the Resources folder for exploration. 
 
-Split the preprocessed data into a features array, X, and a target array, y. Use these arrays and the train_test_split function to split the data into training and testing datasets.
+* Explore the data. 
+    There are 12 columns, and 34299 rows of data for each organization that have received funding from the company Alphabet Soup in previous years. DateTime not included in data. There is a column header row in the .csv data.  Downloaded the .csv data file from the website url to explore the data. 
+    .csv input data file downloaded from the website and placed in the Resources folder. 
 
-Scale the training and testing features datasets by creating a StandardScaler instance, fitting it to the training data, then using the transform function.
+    Columns / Metadata: 
+    * EIN  - Identification  
+    * NAME — Identification 
+    * APPLICATION_TYPE — Alphabet Soup application type
+    * AFFILIATION — Affiliated sector of industry
+    * CLASSIFICATION — Government organization classification
+    * USE_CASE — Use case for funding
+    * ORGANIZATION — Organization type
+    * STATUS — Active status
+    * INCOME_AMT — Income classification
+    * SPECIAL_CONSIDERATIONS — Special considerations for application
+    * ASK_AMT — Funding amount requested
+    * IS_SUCCESSFUL — Was the money used effectively
 
-Step 2: Compile, Train, and Evaluate the Model
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
+* Preprocess the Data
+    Drop / Remove the unbeneficial columns. Create Model(s). 
 
-Continue using the file in Google Colab in which you performed the preprocessing steps from Step 1.
+    Model Target y variable:'IS_SUCCESSFUL'  
 
-Create a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
+    Model Features X variables: 
+        APPLICATION_TYPE 
+        AFFILIATION 
+        CLASSIFICATION 
+        USE_CASE 
+        ORGANIZATION 
+        STATUS 
+        INCOME_AMT 
+        SPECIAL_CONSIDERATIONS 
+        ASK_AMT 
 
-Create the first hidden layer and choose an appropriate activation function.
+* Neural Network Models compiled, trained (fitted) and evaluated.
 
-If necessary, add a second hidden layer with an appropriate activation function.
+* Bins created for Feature(s) with more than 10 unique values. 
+Determine the 'cutoff' point for each Feature(s) using the number of unique value data points and grouping these 'rate' categorical variables, the outliers, in a bin called 'Other'. 
 
-Create an output layer with an appropriate activation function.
+* pd.get_dummies() used to encode categorical variables with Data Type: Object to numeric data type.
+For example, in the AlphabetSoupCharity_Model code file which contains one Model, there are 7 Categorical Variables: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, INCOME_AMT, SPECIAL_CONSIDERATIONS. 
 
-Check the structure of the model.
+* Preprocessed data is split:  
+    first into X Features array, and y Target array, then
+    using the train_test_split function to split into training and testing datasets using a specific random_state.  
+    In this case random_state of 42 is used. 
 
-Compile and train the model.
+    Split data: 
+        X_train shape: (25724, 43)
+        X_test shape: (8575, 43)
+        y_train shape: (25724,)
+        y_test shape: (8575,)
+    There are 43 Features / Columns in the X variables. 
 
-Create a callback that saves the model's weights every five epochs.
+Total Rows: 34,299.  Each row is an organization.  The .csv file included a column header row. 
 
-Evaluate the model using the test data to determine the loss and accuracy.
+* StandardScaler used to normalize and scale the training and testing features X variables by creating a StandardScaler instance, and then fitting it to the training data and then using the transform function.
 
-Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity.h5.
+* There is more data in the Training dataset about 70% typically, and 30% in Testing dataset.  
+Data is distributed evenly by measuring weight of each Feature, and split between Training and Testing Data Set. 
 
-Step 3: Optimize the Model
-Using your knowledge of TensorFlow, optimize your model to achieve a target predictive accuracy higher than 75%.
+* Optimizing the Model: 
+    * Auto-optimization used with hyperparameters to arrive at top 3 models.  Step = 5. 
+    QUESTION: is is what is meant by 'Create a callback that saves the model's weights every five epochs.' 
 
-Use any or all of the following methods to optimize your model:
+    * Adding neurons, adding hidden layers, number of epoch, reducing the number of Features, selecting the appropriate Activation Function(s) are levers or methods for perhaps improving performance, run times, and Accuracy and decreasing Loss.  
+    Removing of outliers, or binning  with having the outliers or rare occurances of data points in a bin group called 'rare' or 'other' 
 
-Adjust the input data to ensure that no variables or outliers are causing confusion in the model, such as:
-Dropping more or fewer columns.
-Creating more bins for rare occurrences in columns.
-Increasing or decreasing the number of values for each bin.
-Add more neurons to a hidden layer.
-Add more hidden layers.
-Use different activation functions for the hidden layers.
-Add or reduce the number of epochs to the training regimen.
-Note: If you make at least three attempts at optimizing your model, you will not lose points if your model does not achieve target performance.
+    * A good rule of thumb is for first hidden layer to have 2-3 times the number of neurons as there are input dimensions/features. 
+    There are 43 features in our processed dataset. 
 
-Create a new Google Colab file and name it AlphabetSoupCharity_Optimization.ipynb.
+    * Typically at the most 3 hidden layers are used in most Deep Learning Models. 
 
-Import your dependencies and read in the charity_data.csv to a Pandas DataFrame.
+    * Particularly since we have (not too much) 8575 rows with 43 columns of data in our Testing Data set, having too many neurons or too many hidden layers could overfit the data
 
-Preprocess the dataset as you did in Step 1. Be sure to adjust for any modifications that came out of optimizing the model.
 
-Design a neural network model, and be sure to adjust for modifications that will optimize the model to achieve higher than 75% accuracy.
+* Output files: 
 
-Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity_Optimization.h5.
+    First Model from the AlphabetSoupCharity_Model.ipynb: 
 
-Step 4: Write a Report on the Neural Network Model
-For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for Alphabet Soup.
+        AlphabetsoupCharity_model.h5, 
 
-The report should contain the following:
+        AlphabetSoupCharity_model.keras  Keras format is the updated file format to save models. 
 
-Overview of the analysis: Explain the purpose of this analysis.
+    Subsequent models generated in the AlphabetSoupCharity_Optimization.ipynb: 
 
-Results: Using bulleted lists and images to support your answers, address the following questions:
+        AlphabetSoupChaity_optimization_1_best.keras - the best optimization model
 
-Data Preprocessing
+        AlphabetSoupChaity_optimization_2.keras - the second best optimization model
 
-What variable(s) are the target(s) for your model?
-What variable(s) are the features for your model?
-What variable(s) should be removed from the input data because they are neither targets nor features?
-Compiling, Training, and Evaluating the Model
+        AlphabetSoupChaity_optimization_3.keras - the third optimization model 
 
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take in your attempts to increase model performance?
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
-Step 5: Copy Files Into Your Repository
-Now that you're finished with your analysis in Google Colab, you need to get your files into your repository for final submission.
-
-Download your Colab notebooks to your computer.
-
-Move them into your Deep Learning Challenge directory in your local repository.
-
-Push the added files to GitHub.
-
-Requirements
-Preprocess the Data (30 points)
-Create a dataframe containing the charity_data.csv data , and identify the target and feature variables in the dataset (2 points)
-Drop the EIN and NAME columns (2 points)
-Determine the number of unique values in each column (2 points)
-For columns with more than 10 unique values, determine the number of data points for each unique value (4 points)
-Create a new value called Other that contains rare categorical variables (5 points)
-Create a feature array, X, and a target array, y by using the preprocessed data (5 points)
-Split the preprocessed data into training and testing datasets (5 points)
-Scale the data by using a StandardScaler that has been fitted to the training data (5 points)
-Compile, Train and Evaluate the Model (20 points)
-Create a neural network model with a defined number of input features and nodes for each layer (4 points)
-Create hidden layers and an output layer with appropriate activation functions (4 points)
-Check the structure of the model (2 points)
-Compile and train the model (4 points)
-Evaluate the model using the test data to determine the loss and accuracy (4 points)
-Export your results to an HDF5 file named AlphabetSoupCharity.h5 (2 points)
-Optimize the Model (20 points)
-Repeat the preprocessing steps in a new Jupyter notebook (4 points)
-Create a new neural network model, implementing at least 3 model optimization methods (15 points)
-Save and export your results to an HDF5 file named AlphabetSoupCharity_Optimization.h5 (1 point)
-Write a Report on the Neural Network Model (30 points)
-Write an analysis that includes a title and multiple sections, labeled with headers and subheaders (4 points)
-Format images in the report so that they display correction (2)
-Explain the purpose of the analysis (4)
-Answer all 6 questions in the results section (10)
-Summarize the overall results of your model (4)
-Describe how you could use a different model to solve the same problem, and explain why you would use that model (6)
-Grading
-This assignment will be evaluated against the requirements and assigned a grade according to the following table:
-
-Grade	Points
-A (+/-)	90+
-B (+/-)	80–89
-C (+/-)	70–79
-D (+/-)	60–69
-F (+/-)	< 60
-Submission
-To submit your Challenge assignment, click Submit, and then provide the URL of your GitHub repository for grading.
-
-NOTE
-You are allowed to miss up to two Challenge assignments and still earn your certificate. If you complete all Challenge assignments, your lowest two grades will be dropped. If you wish to skip this assignment, click Next, and move on to the next Module.
-
-Comments are disabled for graded submissions in BootCamp Spot. If you have questions about your feedback, please notify your instructional staff or your Student Success Manager. If you would like to resubmit your work for an additional review, you can use the Resubmit Assignment button to upload new links. You may resubmit up to three times for a total of four submissions.
-
-IMPORTANT
-It is your responsibility to include a note in the README section of your repo specifying code source and its location within your repo. This applies if you have worked with a peer on an assignment, used code in which you did not author or create sourced from a forum such as Stack Overflow, or you received code outside curriculum content from support staff such as an Instructor, TA, Tutor, or Learning Assistant. This will provide visibility to grading staff of your circumstance in order to avoid flagging your work as plagiarized.
-
-If you are struggling with a Challenge or any aspect of the curriculum, please remember that there are student support services available for you:
-
-Office hours facilitated by your TA(s)
-
-Tutor sessions (sign upLinks to an external site.)
-
-Ask the class Slack channel/get peer support
-
-AskBCS Learning Assistants
-
-References
-IRS. Tax Exempt Organization Search Bulk Data Downloads. https://www.irs.gov/Links to an external site.
+        AlphabetSoupChaity_model_2.keras - model with more neurons
+        
+        AlphabetSoupChaity_model_3.keras - model with fewer features
