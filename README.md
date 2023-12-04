@@ -12,7 +12,7 @@
 
 * Designed additional 5 Models with auto-Optimization , and other models in code file 'AlphabetSoupCharity_Optimization. 
 
-## Analysis
+## Analysis / Summary
 * The Accuracy did not improve significantly across the different optimization models. 
 
 * The Loss increased slightly across the different auto-optimization models in comparison to the First manual model. 
@@ -24,6 +24,12 @@
 * The highest Accuracy attained is in the first Model with 80 neurons in First hidden layer, and 30 in the Second Layer using 9 column Features:
     * 74.1% in the Train Data which is about 70% of the entire DataSet, and 
     * 71.5% in the Test Data which makes up about 30% of the entire input dataset.  
+
+* Recommendation to obtain better accuracy: 
+    * Explore alternative models for higher accuracy. For example, the 'Random Forest classifier' may improve the accuracy and reduce overfitting. 'Among all the available classification methods, random forests provide the highest accuracy. The random forest technique can also handle big data with numerous variables running into thousands. It can automatically balance data sets when a class is more infrequent than other classes in the data.' (google search)
+    * Further preprocess the dataset to remove more outliers in every Feature included in the model.
+    * Accuracy may be improved by adding more data, or by including additional Hidden Layers in the model.
+   
 
 ## Details of findings: 
 * First model in the AlphabetSoupCharity_Model.ipynb uses 9 columns of the metadata, with 80 neurons in the first hidden layer, and 30 in the second hidden layer has:  
