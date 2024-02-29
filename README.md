@@ -1,3 +1,4 @@
+
 # Neural Networks Supervised Deep Machine Learning, using Google Colab
 
 ## Objective 
@@ -5,7 +6,7 @@
 
 * Apply Deep Machine Learning and Neural Networks using features (metadata) from the 'Charity' Dataset provided by Alphabet Soup to create a binary classifier to predict the applicant(s) / organization(s) who will most probably be successful if funded by Alphabet Soup. 
 
-* Optimize your model to achieve a target predictive accuracy higher than 75%.
+* Optimize the model to achieve a target predictive accuracy higher than 75%.
 
 ## Project Overview 
 * Designed a deep learning neural network model using TensorFlow in file 'AlphabetSoupCharity_Model.ipynb' to create the binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset.
