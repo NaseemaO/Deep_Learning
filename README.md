@@ -1,4 +1,4 @@
-# Challenge 21 Neural Networks Supervised Deep Machine Learning, using Google Colab
+# Neural Networks Supervised Deep Machine Learning, using Google Colab
 
 ## Objective 
 * To build a tool for the nonprofit foundation 'Alphabet Soup' to help in selecting those organization applicants for funding who will have the best chance of success in their ventures. 
